@@ -11,7 +11,7 @@ void loop2(void* parameter) {
     buttonState = digitalRead(pushButton);
     if (buttonState == 1) {
       digitalWrite(redLED, HIGH);
-      Serial.print("            Core#");
+      Serial.print("                     Core#");
       Serial.print(xPortGetCoreID());
       Serial.println("  ButtonPressed");
       delay(50);
@@ -40,7 +40,7 @@ void setup() {
 
 void loop() {
   digitalWrite(blueLED, HIGH);
-  Serial.println("              LED ON");
+  Serial.println("             LED ON");
   delay(1000);
   digitalWrite(blueLED, LOW);
   Serial.println("  LED OFF");
