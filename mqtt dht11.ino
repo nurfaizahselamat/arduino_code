@@ -2,8 +2,8 @@
 #include <PubSubClient.h>
 #include <DHT.h>
 
-#define ssid "iotclass@unifi"         
-#define password "classiot123"
+#define ssid "yourSSID"   
+#define password "yourPASSWORD"
 #define mqtt_server "broker.hivemq.com"
 
 DHT dht(25, DHT11);
