@@ -1,8 +1,8 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 
-#define ssid "iotclass@unifi"
-#define password "classiot123"
+#define ssid "yourSSID"   
+#define password "yourPASSWORD"
 const char* mqtt_server = "broker.hivemq.com";
 
 WiFiClient espClient;
