@@ -1,0 +1,60 @@
+esphome:
+    platform: ESP32
+    board: esp32dev
+    name: esp32-dht22-led
+
+logger:
+    level: DEBUG
+ 
+switch:
+    - platform: gpio
+      pin: 18
+      name: "Warm Light"
+      id: redLED
+      
+    - platform: gpio
+      pin: 21
+      name: "Cold Light"
+      id: greenLED
+      
+    - platform: gpio
+      pin: 19
+      name: "Humidity Light"
+      id: blueLED
+      
+sensor:
+    - platform: dht
+      pin: 25
+      model: DHT22
+      
+      temperature:
+        name: "Temperature"
+        id: temp
+        on_value_range:
+            - above: 29.0
+              then:
+                - switch.turn_on: redLED
+                - switch.turn_off: greenLED
+            - below: 28.9
+              then:
+                - switch.turn_on: greenLED
+                - switch.turn_off: redLED
+        
+      humidity:
+        name: "Humidity"
+        id: humi
+        on_value_range:
+            - above: 50.0
+              then:
+                - switch.turn_on: blueLED 
+            - below: 49.5
+              then:
+                - switch.turn_off: blueLED   
+      update_interval: 5s
+      
+      
+
+        
+      
+
+  
