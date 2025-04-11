@@ -1,0 +1,21 @@
+# maklumat projek dan board
+esphome:
+    name: water-level-sensor
+    friendly_name: ESP32 with Water Level Sensor
+    platform: ESP32
+    board: esp32dev
+
+# mulakan log sama seperti serial monitor
+logger:
+
+# water level sensor jenis Resistive
+sensor:
+    - platform: adc
+      pin: GPIO25         
+      name: "Water Level Sensor"
+      update_interval: 1s            # untuk kegunaan sebenar biar update lama sedikit cth: 300s
+      unit_of_measurement: raw
+      
+ 
+      
+      
